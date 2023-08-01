@@ -70,19 +70,27 @@ function createRobot(coordinates, direction) {
     orientation = 'North'}
   };
 
+  //'RAALAL'
+  function instructions(string) {
+    const actions = {
+      A: () => advance(),
+      R: () => turnRight(),
+      L: () => turnLeft()
+    }
+    for(i = 0; i <string.length; i ++) {
+      actions[string[i]]()
+    }
+  }
+
   return {
     message, 
     getPosition,
     advance, 
     turnRight,
     turnLeft,
+    instructions
   }
 
   } 
-
-  //   instructions: (stringInstructions) => {
-  //     // función para recibir una serie de instrucciones Ejm: "RAALAL"
-  //     // En este metodo se va crear 
-  //   }
   
 module.exports = createRobot;
